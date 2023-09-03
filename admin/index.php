@@ -2,7 +2,6 @@
 
 require "../php/db.php";
 
-<<<<<<< HEAD
 if (isset($_COOKIE["admin"])) {
     $adminData = json_decode($_COOKIE["user"], true);
     $admin = R::findOne("admins", "login = ? AND password = ?", [$adminData["login"], $adminData["password"]]);
@@ -12,11 +11,6 @@ if (!$admin) {
     unset($_COOKIE['admin']);
     setcookie('admin', null, time() + 60 * 60 * 24 * 1, '/');
     header("Location: sign-in");
-=======
-if ($user->admin != true) {
-    include "../404.php";
-    exit();
->>>>>>> d7193508ce5f5414118f75155fb57f8821e37c9d
 }
 
 ?>
