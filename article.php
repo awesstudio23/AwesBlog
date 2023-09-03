@@ -118,9 +118,9 @@ require "php/db.php";
                                                 </svg>
                                             </div>
                                         </div>
-                                        <form class="card-comment-box" role="form">
-                                            <input class="form-control" placeholder="Add a comment...">
-                                        </form>
+                                        <div class="card-comment-box">
+                                            <input class="form-control" placeholder="Написать комментарий..">
+                                        </div>
                                     </div>
                                     <div class="col-4 col-md-3 text-end">
                                         <div class="d-inline-flex mx-n2">
