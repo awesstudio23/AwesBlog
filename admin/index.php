@@ -43,11 +43,7 @@ if (!$admin) {
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <div class="navbar-nav mx-lg-auto">
-<<<<<<< HEAD
                             <a class="nav-item nav-link" href="/">Список статей</a>
-=======
-                            <a class="nav-item nav-link active" href="/" aria-current="page">Список статей</a>
->>>>>>> d7193508ce5f5414118f75155fb57f8821e37c9d
                             <button class="nav-item nav-link" data-bs-toggle="modal" data-bs-target="#addArticle">Добавить статью</м>
                         </div>
                         <div class="d-flex align-items-lg-center mt-3 mt-lg-0">
