@@ -26,4 +26,20 @@ $(document).ready(function () {
             });
         }
     });
+
+    $("#sign-in-form").on("submit", function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "/php/api/sign.php",
+            data: $(this).serialize() + "&type=sign-in",
+            success: function (data) {
+                if (data == "") {
+                    window.location.href = "profile";
+                } else {
+                    toastr.error(data);
+                }
+            }
+        });
+    });
 });
