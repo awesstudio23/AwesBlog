@@ -16,32 +16,7 @@
         <div class="preloader">
             <div class="preloader__icon"></div>
         </div>
-        <header class="header">
-            <div class="container max-w-screen-xl header__container">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light px-0 py-3">
-                    <a class="navbar-brand" href="/">
-                        <img src="img/logo.png" class="h-8" alt="logo">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <div class="navbar-nav mx-lg-auto">
-                            <a class="nav-item nav-link" href="/">Главная</a>
-                            <a class="nav-item nav-link active" href="/" aria-current="page">Профиль</a>
-                            <a class="nav-item nav-link disabled" href="#">To be soon..</a>
-                        </div>
-                        <div class="d-flex align-items-lg-center mt-3 mt-lg-0">
-                            <a href="#" class="btn btn-sm btn-danger w-full w-lg-auto">
-                                Выйти
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </header>
+        <? include "layouts/header.php"; ?>
         <main class="main pt-20">
             <section class="profile pb-10">
                 <div class="container profile__container">
@@ -59,9 +34,7 @@
         </main>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="js/libs/jquery-3.7.0.min.js"></script>
     <script src="js/main.js"></script>
 </body>
