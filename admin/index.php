@@ -1,3 +1,13 @@
+<?php
+
+require "../php/db.php";
+
+if ($user->admin != true) {
+    include "../404.php";
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -22,16 +32,13 @@
                     <a class="navbar-brand" href="/">
                         <img src="../img/logo.png" class="h-8" alt="logo">
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <div class="navbar-nav mx-lg-auto">
                             <a class="nav-item nav-link active" href="/" aria-current="page">Список статей</a>
-                            <button class="nav-item nav-link" data-bs-toggle="modal"
-                                data-bs-target="#addArticle">Добавить статью</м>
+                            <button class="nav-item nav-link" data-bs-toggle="modal" data-bs-target="#addArticle">Добавить статью</м>
                         </div>
                         <div class="d-flex align-items-lg-center mt-3 mt-lg-0">
                             <a href="../" class="btn btn-sm btn-danger w-full w-lg-auto">
@@ -332,21 +339,17 @@
                     <form action="#">
                         <div class="modal-body">
                             <div class="mb-2">
-                                <textarea class="form-control" name="title" id="title" rows="2"
-                                    placeholder="Заголовок" required></textarea>
+                                <textarea class="form-control" name="title" id="title" rows="2" placeholder="Заголовок" required></textarea>
                             </div>
                             <div class="mb-2">
-                                <textarea class="form-control" name="subtitle" id="subtitle" rows="2"
-                                    placeholder="Краткое описание" required></textarea>
+                                <textarea class="form-control" name="subtitle" id="subtitle" rows="2" placeholder="Краткое описание" required></textarea>
                             </div>
                             <div class="mb-5">
-                                <textarea class="form-control" name="content" id="content" rows="5"
-                                    placeholder="Содержание" required></textarea>
+                                <textarea class="form-control" name="content" id="content" rows="5" placeholder="Содержание" required></textarea>
                             </div>
                             <div class="card shadow-none border-2 border-dashed border-primary-hover position-relative">
                                 <div class="d-flex justify-content-center px-5 py-5">
-                                    <label for="file_upload"
-                                        class="position-absolute w-full h-full top-0 start-0 cursor-pointer">
+                                    <label for="file_upload" class="position-absolute w-full h-full top-0 start-0 cursor-pointer">
                                         <input id="file_upload" name="file_upload" type="file" class="visually-hidden" required>
                                     </label>
                                     <div class="text-center">
@@ -382,21 +385,17 @@
                     <form action="#">
                         <div class="modal-body">
                             <div class="mb-2">
-                                <textarea class="form-control" name="title" id="title" rows="2"
-                                    placeholder="Заголовок" required></textarea>
+                                <textarea class="form-control" name="title" id="title" rows="2" placeholder="Заголовок" required></textarea>
                             </div>
                             <div class="mb-2">
-                                <textarea class="form-control" name="subtitle" id="subtitle" rows="2"
-                                    placeholder="Краткое описание" required></textarea>
+                                <textarea class="form-control" name="subtitle" id="subtitle" rows="2" placeholder="Краткое описание" required></textarea>
                             </div>
                             <div class="mb-5">
-                                <textarea class="form-control" name="content" id="content" rows="5"
-                                    placeholder="Содержание" required></textarea>
+                                <textarea class="form-control" name="content" id="content" rows="5" placeholder="Содержание" required></textarea>
                             </div>
                             <div class="card shadow-none border-2 border-dashed border-primary-hover position-relative">
                                 <div class="d-flex justify-content-center px-5 py-5">
-                                    <label for="file_upload"
-                                        class="position-absolute w-full h-full top-0 start-0 cursor-pointer">
+                                    <label for="file_upload" class="position-absolute w-full h-full top-0 start-0 cursor-pointer">
                                         <input id="file_upload" name="file_upload" type="file" class="visually-hidden" required>
                                     </label>
                                     <div class="text-center">
@@ -422,9 +421,7 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="../js/libs/jquery-3.7.0.min.js"></script>
     <script src="../js/main.js"></script>
 </body>

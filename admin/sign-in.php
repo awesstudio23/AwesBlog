@@ -1,3 +1,13 @@
+<?php
+
+require "../php/db.php";
+
+if ($user->admin != true) {
+    include "../404.php";
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -27,8 +37,7 @@
                             <input type="text" class="form-control" name="login" placeholder="Логин" required>
                         </div>
                         <div class="mb-5">
-                            <input type="password" class="form-control" name="password" placeholder="Пароль"
-                                autocomplete="current-password" required>
+                            <input type="password" class="form-control" name="password" placeholder="Пароль" autocomplete="current-password" required>
                         </div>
                         <div>
                             <button class="btn btn-primary w-full">
@@ -41,9 +50,7 @@
         </main>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="../js/libs/jquery-3.7.0.min.js"></script>
     <script src="../js/main.js"></script>
 </body>

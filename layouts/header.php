@@ -1,4 +1,4 @@
-<? if (!isset($_COOKIE["user"])) { ?>
+<?php if (!isset($_COOKIE["user"])) { ?>
     <header class="header">
         <div class="container max-w-screen-xl header__container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light px-0 py-3">
@@ -39,6 +39,9 @@
                     <div class="navbar-nav mx-lg-auto">
                         <a class="nav-item nav-link" href="/">Главная</a>
                         <a class="nav-item nav-link" href="profile">Профиль</a>
+                        <? if ($user->admin == true) : ?>
+                            <a class="nav-item nav-link" href="admin/">Админ панель</a>
+                        <? endif; ?>
                         <a class="nav-item nav-link disabled" href="#">To be soon..</a>
                     </div>
                     <div class="d-flex align-items-lg-center mt-3 mt-lg-0">
