@@ -42,4 +42,20 @@ $(document).ready(function () {
             }
         });
     });
+
+    $("#sign-in-admin-form").on("submit", function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "/php/api/sign.php",
+            data: $(this).serialize() + "&type=sign-in-admin",
+            success: function (data) {
+                if (data == "") {
+                    window.location.href = "/admin";
+                } else {
+                    toastr.error(data);
+                }
+            }
+        });
+    });
 });
