@@ -1,0 +1,44 @@
+*
+    line-height: 100%
+    scrollbar-width: thin
+    scrollbar-color: #5C60F5
+    &::-webkit-scrollbar
+        height: 4px
+        width: 4px
+    &::-webkit-scrollbar-track
+        background: none
+    &::-webkit-scrollbar-thumb
+        background-color: #5C60F5
+
+h1, h2, h3, h4, h5, h6, p, ul, label
+    margin: 0
+    padding: 0
+
+ul
+    list-style-type: none
+
+a
+    text-decoration: none
+    &:hover
+        text-decoration: none
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+    -webkit-appearance: none
+    margin: 0
+
+html
+    height: 100%
+
+body
+    height: 100%
+    background: #FFFFFF
+    overflow: hidden
+
+.wrapper
+    position: relative
+    min-height: 100%
+    overflow-x: hidden
+
+@import components/all
+@import layouts/all
