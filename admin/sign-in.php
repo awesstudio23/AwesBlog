@@ -2,8 +2,14 @@
 
 require "../php/db.php";
 
+<<<<<<< HEAD
 if (isset($_COOKIE["admin"])) {
     header("Location: /admin");
+=======
+if ($user->admin != true) {
+    include "../404.php";
+    exit();
+>>>>>>> d7193508ce5f5414118f75155fb57f8821e37c9d
 }
 
 ?>
@@ -37,7 +43,11 @@ if (isset($_COOKIE["admin"])) {
                             <input type="text" class="form-control" name="login" placeholder="Логин" minlength="3" required>
                         </div>
                         <div class="mb-5">
+<<<<<<< HEAD
                             <input type="password" class="form-control" name="password" placeholder="Пароль" minlength="8" autocomplete="current-password" required>
+=======
+                            <input type="password" class="form-control" name="password" placeholder="Пароль" autocomplete="current-password" required>
+>>>>>>> d7193508ce5f5414118f75155fb57f8821e37c9d
                         </div>
                         <div>
                             <button class="btn btn-primary w-full">
