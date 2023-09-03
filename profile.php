@@ -1,3 +1,8 @@
+<?php
+
+require "php/db.php";
+
+?>
 <!DOCTYPE html>
 <html lang="ru">
 

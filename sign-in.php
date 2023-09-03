@@ -1,3 +1,11 @@
+<?php
+
+require "php/db.php";
+
+if ($user)
+    header("Location: /");
+
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -25,10 +33,10 @@
                     </h1>
                     <form action="#">
                         <div class="mb-2">
-                            <input type="email" class="form-control" name="email" placeholder="E-mail" required>
+                            <input type="text" class="form-control" name="login" placeholder="Логин" minlength="3" required>
                         </div>
                         <div class="mb-5">
-                            <input type="password" class="form-control" name="password" placeholder="Пароль" autocomplete="current-password" required>
+                            <input type="password" class="form-control" name="password" placeholder="Пароль" minlength="8" autocomplete="current-password" required>
                         </div>
                         <div>
                             <button class="btn btn-primary w-full">

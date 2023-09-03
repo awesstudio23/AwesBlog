@@ -2,6 +2,7 @@
 <html lang="ru">
 
 <head>
+    <base href="/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AwesBlog — Not Found</title>
