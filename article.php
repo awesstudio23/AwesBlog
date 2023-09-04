@@ -3,7 +3,7 @@
 require "php/db.php";
 
 $article = R::findOne("articles", "id = ?", [$_GET["id"]]);
-$comments = R::findAll("comments", "articleId = ?", [$_GET["id"]]);
+$comments = R::findAll("comments", "article_id = ?", [$_GET["id"]]);
 
 if (!$article)
     header("Location: /");
@@ -19,6 +19,7 @@ if (!$article)
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://unpkg.com/@webpixels/css/dist/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/libs/toastr.min.css">
     <link rel="stylesheet" href="css/index.min.css">
 </head>
 
@@ -37,11 +38,14 @@ if (!$article)
                                 <img src="<?= $article->imageUrl ?>" alt="photo" class="card-img-top">
                             </div>
                             <div class="px-7 pt-7 flex-none mt-auto position-relative overlap-10">
-                                <h3 class="d-inline-block h3 mb-3 stretched-link">
+                                <h1 class="d-inline-block h3 mb-3 stretched-link">
                                     <?= $article->title ?>
-                                </h3>
-                                <p class="mb-0 font-light text-muted">
+                                </h1>
+                                <h2 class="mb-0 font-light text-muted text-sm">
                                     <?= $article->subtitle ?>
+                                </h2>
+                                <p class="mt-5 font-light text-lg text-muted">
+                                    <?= $article->content ?>
                                 </p>
                             </div>
                             <div class="d-flex align-items-center px-7 pt-7">
@@ -97,12 +101,12 @@ if (!$article)
                                             </div>
                                         </div>
                                         <div class="card-comment-box">
-                                            <input class="form-control" placeholder="Написать комментарий..">
+                                            <input class="form-control" id="comment" placeholder="Написать комментарий..">
                                         </div>
                                     </div>
                                     <div class="col-4 col-md-3 text-end">
                                         <div class="d-inline-flex mx-n2">
-                                            <a href="#" class="px-2 text-muted">
+                                            <a href="#" class="px-2 text-muted add-comment" data-id="<?= $article->id ?>">
                                                 <i class="bi bi-send"></i>
                                             </a>
                                         </div>
@@ -119,7 +123,9 @@ if (!$article)
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="js/libs/jquery-3.7.0.min.js"></script>
+    <script src="js/libs/toastr.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/addComment.js"></script>
 </body>
 
 </html>

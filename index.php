@@ -69,9 +69,9 @@ $articles = array_slice($articles, ($_GET["page"] - 1) * 9, 9);
                                             <h3 class="d-inline-block h3 mb-3 stretched-link">
                                                 <?= $article->title ?>
                                             </h3>
-                                            <p class="mb-0 font-light text-muted">
+                                            <h4 class="mb-0 font-light text-muted">
                                                 <?= $article->subtitle ?>
-                                            </p>
+                                            </h4>
                                         </div>
                                         <hr class="mx-7 my-7" />
                                         <div class="px-7 pb-7 border-0 d-flex align-items-center w-full position-relative">

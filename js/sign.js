@@ -29,6 +29,7 @@ $(document).ready(function () {
 
     $("#sign-in-form").on("submit", function (e) {
         e.preventDefault();
+
         $.ajax({
             type: "POST",
             url: "/php/api/sign.php",
@@ -45,6 +46,7 @@ $(document).ready(function () {
 
     $("#sign-in-admin-form").on("submit", function (e) {
         e.preventDefault();
+        
         $.ajax({
             type: "POST",
             url: "/php/api/sign.php",

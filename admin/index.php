@@ -83,9 +83,9 @@ $articles = array_slice($articles, ($_GET["page"] - 1) * 9, 9);
                                             <h3 class="d-inline-block h3 mb-3 stretched-link card-title">
                                                 <?= $article->title ?>
                                             </h3>
-                                            <p class="mb-0 font-light text-muted card-subtitle">
+                                            <h4 class="mb-0 font-light text-muted card-subtitle">
                                                 <?= $article->subtitle ?>
-                                            </p>
+                                            </h4>
                                             <p class="d-none card-content">
                                                 <?= $article->content ?>
                                             </p>
