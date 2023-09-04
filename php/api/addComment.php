@@ -15,7 +15,7 @@ if ($data == null) {
 }
 
 if (strlen($data["content"]) < 3) {
-    echo "Ошибка! Комментарий менее 3-х символов.";
+    echo json_encode(["error" => "Ошибка! Комментарий менее 3-х символов."]);
     exit();
 }
 
@@ -37,7 +37,7 @@ if ($lastComments != null) {
 }
 
 if ($hasRecentComment) {
-    echo "Ошибка! Еще не прошло 3 минуты с последнего комментария.";
+    echo json_encode(["error" => "Ошибка! Еще не прошло 3 минуты с последнего комментария."]);
 } else {
     $comment = R::dispense("comments");
     $comment->articleId = $data["id"];
@@ -46,4 +46,5 @@ if ($hasRecentComment) {
     $comment->content = $data["content"];
     $comment->eventTimestamp = date("Y-m-d H:i:s");
     R::store($comment);
+    echo json_encode($comment);
 }

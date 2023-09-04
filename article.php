@@ -60,7 +60,7 @@ if (!$article)
                                 </div>
                             </div>
                             <hr class="mt-4 mb-3" />
-                            <div class="list-group list-group-flush px-7">
+                            <div class="list-group list-group-flush px-7 comments">
                                 <? foreach ($comments as $comment) : ?>
                                     <div class="list-group-item px-0">
                                         <div class="row">
