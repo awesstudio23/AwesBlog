@@ -101,11 +101,14 @@ $articles = array_slice($articles, ($_GET["page"] - 1) * 9, 9);
                                     </a>
                                 </li>
                                 <?php
-                                $startPage = max(1, $_GET["page"] - 1);
-                                $endPage = min($countPages, $startPage + 2);
+                                $startPage = max(1, $_GET["page"] - 2);
+                                $endPage = min($countPages, $startPage + 4);
 
-                                if ($_GET["page"] == $countPages) {
-                                    $startPage = max(1, $countPages - 2);
+                                if ($countPages <= 5 || $_GET["page"] <= 3) {
+                                    $startPage = 1;
+                                    $endPage = min(5, $countPages);
+                                } elseif ($_GET["page"] >= $countPages - 2) {
+                                    $startPage = max(1, $countPages - 4);
                                     $endPage = $countPages;
                                 }
 
