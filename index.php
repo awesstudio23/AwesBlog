@@ -2,6 +2,18 @@
 
 require "php/db.php";
 
+$articles = R::findAll("articles");
+$articles = array_reverse($articles, true);
+$countPages = ceil(count($articles) / 9);
+
+if (!isset($_GET["page"])) {
+    $_GET["page"] = 1;
+} else if ($_GET["page"] > $countPages) {
+    header("Location: /");
+}
+
+$articles = array_slice($articles, ($_GET["page"] - 1) * 9, 9);
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -46,197 +58,74 @@ require "php/db.php";
             <section class="articles">
                 <div class="container max-w-screen-xl articles__container">
                     <div class="row g-10">
-                        <div class="col-12 col-md-6 col-lg-4 d-flex articles__card">
-                            <a class="card border-0 shadow-3" href="#">
-                                <div class="card-img-top">
-                                    <img src="img/articles/1.avif" alt="photo" class="card-img-top">
+                        <? if (count($articles) != 0) { ?>
+                            <? foreach ($articles as $article) : ?>
+                                <div class="col-12 col-md-6 col-lg-4 d-flex articles__card">
+                                    <a class="card border-0 shadow-3" href="article?id=<?= $article->id ?>">
+                                        <div class="card-img-top">
+                                            <img src="<?= $article->imageUrl ?>" alt="photo" class="card-img-top">
+                                        </div>
+                                        <div class="px-7 pt-7 flex-none mt-auto position-relative overlap-10">
+                                            <h3 class="d-inline-block h3 mb-3 stretched-link">
+                                                <?= $article->title ?>
+                                            </h3>
+                                            <p class="mb-0 font-light text-muted">
+                                                <?= $article->subtitle ?>
+                                            </p>
+                                        </div>
+                                        <hr class="mx-7 my-7" />
+                                        <div class="px-7 pb-7 border-0 d-flex align-items-center w-full position-relative">
+                                            <div class="avatar avatar-sm me-2">
+                                                <img src="img/favicon.ico" alt="logo" class="avatar-img rounded-circle">
+                                            </div>
+                                            <div class="h6 font-semibold text-muted ms-2 stretched-link">
+                                                AwesStudio
+                                            </div>
+                                            <p class="text-sm text-muted mb-0 ms-auto">
+                                                <time datetime="2019-05-02"><?= $article->date ?></time>
+                                            </p>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="px-7 pt-7 flex-none mt-auto position-relative overlap-10">
-                                    <h3 class="d-inline-block h3 mb-3 stretched-link">
-                                        Using Unsplash to improve your listing visibility
-                                    </h3>
-                                    <p class="mb-0 font-light text-muted">
-                                        Using free stock photos of your surrounding areas can skyrocket your
-                                        popularity.
-                                    </p>
-                                </div>
-                                <hr class="mx-7 my-7" />
-                                <div class="px-7 pb-7 border-0 d-flex align-items-center w-full position-relative">
-                                    <div class="avatar avatar-sm me-2">
-                                        <img src="img/favicon.ico" alt="logo" class="avatar-img rounded-circle">
-                                    </div>
-                                    <div class="h6 font-semibold text-muted ms-2 stretched-link">
-                                        AwesStudio
-                                    </div>
-                                    <p class="text-sm text-muted mb-0 ms-auto">
-                                        <time datetime="2019-05-02">May 02</time>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4 d-flex articles__card">
-                            <a class="card border-0 shadow-3" href="#">
-                                <div class="card-img-top">
-                                    <img src="img/articles/1.avif" alt="photo" class="card-img-top">
-                                </div>
-                                <div class="px-7 pt-7 flex-none mt-auto position-relative overlap-10">
-                                    <h3 class="d-inline-block h3 mb-3 stretched-link">
-                                        Using Unsplash to improve your listing visibility
-                                    </h3>
-                                    <p class="mb-0 font-light text-muted">
-                                        Using free stock photos of your surrounding areas can skyrocket your
-                                        popularity.
-                                    </p>
-                                </div>
-                                <hr class="mx-7 my-7" />
-                                <div class="px-7 pb-7 border-0 d-flex align-items-center w-full position-relative">
-                                    <div class="avatar avatar-sm me-2">
-                                        <img src="img/favicon.ico" alt="logo" class="avatar-img rounded-circle">
-                                    </div>
-                                    <div class="h6 font-semibold text-muted ms-2 stretched-link">
-                                        AwesStudio
-                                    </div>
-                                    <p class="text-sm text-muted mb-0 ms-auto">
-                                        <time datetime="2019-05-02">May 02</time>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4 d-flex articles__card">
-                            <a class="card border-0 shadow-3" href="#">
-                                <div class="card-img-top">
-                                    <img src="img/articles/1.avif" alt="photo" class="card-img-top">
-                                </div>
-                                <div class="px-7 pt-7 flex-none mt-auto position-relative overlap-10">
-                                    <h3 class="d-inline-block h3 mb-3 stretched-link">
-                                        Using Unsplash to improve your listing visibility
-                                    </h3>
-                                    <p class="mb-0 font-light text-muted">
-                                        Using free stock photos of your surrounding areas can skyrocket your
-                                        popularity.
-                                    </p>
-                                </div>
-                                <hr class="mx-7 my-7" />
-                                <div class="px-7 pb-7 border-0 d-flex align-items-center w-full position-relative">
-                                    <div class="avatar avatar-sm me-2">
-                                        <img src="img/favicon.ico" alt="logo" class="avatar-img rounded-circle">
-                                    </div>
-                                    <div class="h6 font-semibold text-muted ms-2 stretched-link">
-                                        AwesStudio
-                                    </div>
-                                    <p class="text-sm text-muted mb-0 ms-auto">
-                                        <time datetime="2019-05-02">May 02</time>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4 d-flex articles__card">
-                            <a class="card border-0 shadow-3" href="#">
-                                <div class="card-img-top">
-                                    <img src="img/articles/1.avif" alt="photo" class="card-img-top">
-                                </div>
-                                <div class="px-7 pt-7 flex-none mt-auto position-relative overlap-10">
-                                    <h3 class="d-inline-block h3 mb-3 stretched-link">
-                                        Using Unsplash to improve your listing visibility
-                                    </h3>
-                                    <p class="mb-0 font-light text-muted">
-                                        Using free stock photos of your surrounding areas can skyrocket your
-                                        popularity.
-                                    </p>
-                                </div>
-                                <hr class="mx-7 my-7" />
-                                <div class="px-7 pb-7 border-0 d-flex align-items-center w-full position-relative">
-                                    <div class="avatar avatar-sm me-2">
-                                        <img src="img/favicon.ico" alt="logo" class="avatar-img rounded-circle">
-                                    </div>
-                                    <div class="h6 font-semibold text-muted ms-2 stretched-link">
-                                        AwesStudio
-                                    </div>
-                                    <p class="text-sm text-muted mb-0 ms-auto">
-                                        <time datetime="2019-05-02">May 02</time>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4 d-flex articles__card">
-                            <a class="card border-0 shadow-3" href="#">
-                                <div class="card-img-top">
-                                    <img src="img/articles/1.avif" alt="photo" class="card-img-top">
-                                </div>
-                                <div class="px-7 pt-7 flex-none mt-auto position-relative overlap-10">
-                                    <h3 class="d-inline-block h3 mb-3 stretched-link">
-                                        Using Unsplash to improve your listing visibility
-                                    </h3>
-                                    <p class="mb-0 font-light text-muted">
-                                        Using free stock photos of your surrounding areas can skyrocket your
-                                        popularity.
-                                    </p>
-                                </div>
-                                <hr class="mx-7 my-7" />
-                                <div class="px-7 pb-7 border-0 d-flex align-items-center w-full position-relative">
-                                    <div class="avatar avatar-sm me-2">
-                                        <img src="img/favicon.ico" alt="logo" class="avatar-img rounded-circle">
-                                    </div>
-                                    <div class="h6 font-semibold text-muted ms-2 stretched-link">
-                                        AwesStudio
-                                    </div>
-                                    <p class="text-sm text-muted mb-0 ms-auto">
-                                        <time datetime="2019-05-02">May 02</time>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4 d-flex articles__card">
-                            <a class="card border-0 shadow-3" href="#">
-                                <div class="card-img-top">
-                                    <img src="img/articles/1.avif" alt="photo" class="card-img-top">
-                                </div>
-                                <div class="px-7 pt-7 flex-none mt-auto position-relative overlap-10">
-                                    <h3 class="d-inline-block h3 mb-3 stretched-link">
-                                        Using Unsplash to improve your listing visibility
-                                    </h3>
-                                    <p class="mb-0 font-light text-muted">
-                                        Using free stock photos of your surrounding areas can skyrocket your
-                                        popularity.
-                                    </p>
-                                </div>
-                                <hr class="mx-7 my-7" />
-                                <div class="px-7 pb-7 border-0 d-flex align-items-center w-full position-relative">
-                                    <div class="avatar avatar-sm me-2">
-                                        <img src="img/favicon.ico" alt="logo" class="avatar-img rounded-circle">
-                                    </div>
-                                    <div class="h6 font-semibold text-muted ms-2 stretched-link">
-                                        AwesStudio
-                                    </div>
-                                    <p class="text-sm text-muted mb-0 ms-auto">
-                                        <time datetime="2019-05-02">May 02</time>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
+                            <? endforeach; ?>
+                        <? } else { ?>
+                            <h3 class="text-center">Упс! Список статей временно пуст.</h3>
+                        <? }  ?>
                     </div>
-                    <nav class="mt-10">
-                        <ul class="pagination pagination-spaced gap-2 articles__pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="#">
-                                    < </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">
-                                    >
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <?php if ($countPages != 0) : ?>
+                        <nav class="mt-10">
+                            <ul class="pagination pagination-spaced gap-2 articles__pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="?page=<?= max(1, $_GET["page"] - 1) ?>">
+                                        <
+                                    </a>
+                                </li>
+                                <?php
+                                $startPage = max(1, $_GET["page"] - 1);
+                                $endPage = min($countPages, $startPage + 2);
+
+                                if ($_GET["page"] == $countPages) {
+                                    $startPage = max(1, $countPages - 2);
+                                    $endPage = $countPages;
+                                }
+
+                                for ($i = $startPage; $i <= $endPage; $i++) :
+                                ?>
+                                    <li class="page-item <?php if ($i == $_GET["page"]) echo "active" ?>">
+                                        <a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a>
+                                    </li>
+                                <?php endfor; ?>
+
+                                <li class="page-item">
+                                    <a class="page-link" href="?page=<?= min($countPages, $_GET["page"] + 1) ?>">></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    <?php endif; ?>
                 </div>
             </section>
         </main>
-       <? include "layouts/footer.php"; ?>
+        <? include "layouts/footer.php"; ?>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
